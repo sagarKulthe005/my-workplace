@@ -2,7 +2,11 @@
   "name": "weatherapp",
   "version": "1.0.8",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "lint": "gulp lint",
+    "test": "gulp test",
+    "style": "gulp style"
+  },
   "dependencies": {
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.3",
@@ -28,5 +32,10 @@
     "mocha": "^3.0.2",
     "pre-commit": "^1.1.3",
     "precommit-hook": "^3.0.0"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "style",
+    "test"
+  ]
 }
