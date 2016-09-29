@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
 var session = require('express-session');
+
 //Custom packages
 var routes = require('./api/routes/routes');
 var config = require('./api/config');
