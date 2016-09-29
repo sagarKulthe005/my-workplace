@@ -38,7 +38,7 @@ gulp.task('lint', function () {
     return gulp.src(['gulpFile.js', 'app.js', './api/**/*.js'])
         .pipe(jslint({
             node:  true,
-            nomen:  true
+                nomen:  true
         }))
         .pipe(jslint.reporter('stylish',  true));
 });
