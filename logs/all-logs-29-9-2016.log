@@ -818,3 +818,23 @@
 {"level":"info","message":"server started on 3000","timestamp":"2016-09-29T17:56:09.863Z"}
 {"level":"info","message":"server started on 3000","timestamp":"2016-09-29T17:57:42.259Z"}
 {"level":"info","message":"server started on 3000","timestamp":"2016-09-29T17:58:03.633Z"}
+{"level":"info","message":"Current weather details requested for city: London","timestamp":"2016-09-29T17:58:16.492Z"}
+{"level":"info","message":"Response code from openWeatherApi is 200 for city: London","timestamp":"2016-09-29T17:58:16.790Z"}
+{"level":"info","message":"Current weather details requested for city: London","timestamp":"2016-09-29T17:58:16.811Z"}
+{"level":"info","message":"Response code from openWeatherApi is 200 for city: London","timestamp":"2016-09-29T17:58:17.085Z"}
+{"level":"info","message":"Current weather details requested for city: pop098","timestamp":"2016-09-29T17:58:17.098Z"}
+{"level":"info","message":"Response code from openWeatherApi is 404 for city: pop098","timestamp":"2016-09-29T17:58:18.020Z"}
+{"level":"info","message":"Current weather details requested for city: pop098","timestamp":"2016-09-29T17:58:18.025Z"}
+{"level":"info","message":"Response code from openWeatherApi is 404 for city: pop098","timestamp":"2016-09-29T17:58:18.683Z"}
+{"level":"info","message":"Insufficient parameters provided","timestamp":"2016-09-29T17:58:18.688Z"}
+{"level":"info","message":"Insufficient parameters provided","timestamp":"2016-09-29T17:58:18.696Z"}
+{"level":"info","message":"Forecast details requested for city: London","timestamp":"2016-09-29T17:58:18.702Z"}
+{"level":"info","message":"Response code from openWeatherApi is 200 for city: London","timestamp":"2016-09-29T17:58:19.116Z"}
+{"level":"info","message":"Forecast details requested for city: London","timestamp":"2016-09-29T17:58:19.120Z"}
+{"level":"info","message":"Response code from openWeatherApi is 200 for city: London","timestamp":"2016-09-29T17:58:19.529Z"}
+{"level":"info","message":"Forecast details requested for city: pop098","timestamp":"2016-09-29T17:58:19.534Z"}
+{"level":"info","message":"Response code from openWeatherApi is 404 for city: pop098","timestamp":"2016-09-29T17:58:20.508Z"}
+{"level":"info","message":"Forecast details requested for city: pop098","timestamp":"2016-09-29T17:58:20.514Z"}
+{"level":"info","message":"Response code from openWeatherApi is 404 for city: pop098","timestamp":"2016-09-29T17:58:20.784Z"}
+{"level":"info","message":"Insufficient parameters provided","timestamp":"2016-09-29T17:58:20.788Z"}
+{"level":"info","message":"Insufficient parameters provided","timestamp":"2016-09-29T17:58:20.794Z"}
