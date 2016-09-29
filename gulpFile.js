@@ -18,9 +18,8 @@ gulp.task('doc', function (cb) {
 gulp.task('style', function () {
     return gulp.src(['gulpFile.js', 'app.js', './api/**/*.js'])
         .pipe(jscs({fix: true}))
-        .pipe(jscs({configPath: "./.jscsrc"}))
-        .pipe(jscs.reporter())
-        .pipe(jscs.reporter('fail'));
+        .pipe(jscs({configPath: "./.jscsrc"}));
+
 });
 
 gulp.task('pre-commit', ['lint', 'style', 'test']);
