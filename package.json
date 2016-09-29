@@ -5,7 +5,8 @@
   "scripts": {
     "test": "gulp test",
     "lint": "gulp lint",
-    "style": "gulp style"
+    "style": "gulp style",
+    "pre-commit":"gulp pre-commit"
   },
   "dependencies": {
     "body-parser": "^1.15.1",
@@ -35,8 +36,6 @@
     "precommit-hook": "^3.0.0"
   },
   "pre-commit": [
-    "style",
-    "lint",
-    "test"
+    "pre-commit"
   ]
 }
