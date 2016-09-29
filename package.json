@@ -3,7 +3,7 @@
   "version": "1.0.8",
   "private": true,
   "scripts": {
-    "test": "gulp test",
+    "test": "./node_modules/.bin/mocha --reporter spec",
     "lint": "gulp lint",
     "style": "gulp style"
   },

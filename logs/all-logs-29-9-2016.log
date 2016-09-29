@@ -208,3 +208,4 @@
 {"level":"info","message":"Response code from openWeatherApi is 404 for city: pop098","timestamp":"2016-09-29T11:36:55.556Z"}
 {"level":"info","message":"Insufficient parameters provided","timestamp":"2016-09-29T11:36:55.561Z"}
 {"level":"info","message":"Insufficient parameters provided","timestamp":"2016-09-29T11:36:55.567Z"}
+{"level":"info","message":"server started on 3000","timestamp":"2016-09-29T16:11:53.439Z"}
