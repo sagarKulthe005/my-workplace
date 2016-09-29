@@ -8,7 +8,7 @@ var jslint = require('gulp-jslint');
 var jscs = require('gulp-jscs');
 var guppy = require('git-guppy')(gulp);
 var jsdoc = require('gulp-jsdoc3');
-
+var notify = require("gulp-notify");
 
 gulp.task('doc', function (cb) {
     gulp.src(['./api/**/*.js'], {read: false})
@@ -18,8 +18,9 @@ gulp.task('doc', function (cb) {
 gulp.task('style', function () {
     return gulp.src(['gulpFile.js', 'app.js', './api/**/*.js'])
         .pipe(jscs({fix: true}))
-        .pipe(jscs({configPath: "./.jscsrc"}));
-
+        .pipe(jscs({configPath: "./.jscsrc"}))
+        .pipe(jscs.reporter())
+        .pipe(jscs.reporter('fail'))
 });
 
 gulp.task('pre-commit', ['lint', 'style', 'test']);
@@ -30,7 +31,8 @@ gulp.task('lint', function () {
             node:  true,
             nomen:  true
         }))
-        .pipe(jslint.reporter('stylish',  true));
+        .pipe(jslint.reporter('stylish',  true))
+        .pipe(notify("Found file: <%= file.relative %>!"));
 });
 
 gulp.task('test', function () {
