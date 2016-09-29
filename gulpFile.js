@@ -9,6 +9,16 @@ var jscs = require('gulp-jscs');
 var guppy = require('git-guppy')(gulp);
 var jsdoc = require('gulp-jsdoc3');
 
+gulp.task('pre-commit', guppy.src('pre-commit', function (filesBeingCommitted) {
+// this works fine with proper files
+    return gulp.src('../' + filesBeingCommitted)
+        .pipe(jslint({
+            node:  true,
+            nomen:  true
+        }))
+        .pipe(jslint.reporter('stylish',  true));
+}));
+
 gulp.task('doc', function (cb) {
     gulp.src(['./api/**/*.js'], {read: false})
         .pipe(jsdoc(cb));
