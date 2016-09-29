@@ -34,6 +34,8 @@
     "precommit-hook": "^3.0.0"
   },
   "pre-commit": [
+    "style",
+    "lint",
     "test"
   ]
 }
