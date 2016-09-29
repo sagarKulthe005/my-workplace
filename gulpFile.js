@@ -12,14 +12,10 @@ var jsdoc = require('gulp-jsdoc3');
 
 gulp.task('doc', function (cb) {
     gulp.src(['./api/**/*.js'], {read: false})
-                   
-                   
-                   
-                   
-                    .pipe(jsdoc(cb));
+         .pipe(jsdoc(cb));
 });
 
-gulp.task('style', ['lint'], function () {
+gulp.task('style', function () {
     return gulp.src(['gulpFile.js', 'app.js', './api/**/*.js'])
         .pipe(jscs({fix: true}))
         .pipe(jscs({configPath: "./.jscsrc"}))
@@ -38,7 +34,7 @@ gulp.task('lint', function () {
         .pipe(jslint.reporter('stylish',  true));
 });
 
-gulp.task('test', ['style'], function () {
+gulp.task('test', function () {
     gulp.src('./test/*.js', {read: false})
         .pipe(mocha({reporter: 'spec'}));
 });
