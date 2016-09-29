@@ -9,14 +9,23 @@ var jscs = require('gulp-jscs');
 var guppy = require('git-guppy')(gulp);
 var jsdoc = require('gulp-jsdoc3');
 
-gulp.task('pre-commit', guppy.src('pre-commit', function (filesBeingCommitted) {
-  return gulp.src(filesBeingCommitted)
-    .pipe(jslint({
-            node:  true,
-            nomen:  true
-        }))
-        .pipe(jslint.reporter('stylish',  true));
-}));
+  gulp.task("check", function() {
+    // Check all the source and the test cases together
+    return gulp.src(appSourcePaths.concat(testSourcePaths))
+      .pipe(jslint())
+      .pipe(jslint.reporter('stylish',  true));
+      .on("error", function() {
+        process.exit(-1);
+      })
+      .on("end", function() {
+        process.exit();
+      });
+  });
+
+  // define guppy and its dependency hook to pre-commit.
+  var guppy = require("guppy);
+  guppy.init(gulp)
+  guppy.tasks["pre-commit"].dep.push("check")
 
 gulp.task('doc', function (cb) {
     gulp.src(['./api/**/*.js'], {read: false})
@@ -31,7 +40,7 @@ gulp.task('style', function () {
         .pipe(jscs.reporter('fail'));
 });
 
-gulp.task('pre-commit', ['lint', 'style', 'test']);
+//gulp.task('pre-commit', ['lint', 'style', 'test']);
 
 gulp.task('lint', function () {
     return gulp.src(['gulpFile.js', 'app.js', './api/**/*.js'])

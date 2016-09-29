@@ -2,9 +2,7 @@
   "name": "weatherapp",
   "version": "1.0.8",
   "private": true,
-  "scripts": {
-    
-  },
+  "scripts": {},
   "dependencies": {
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.3",
