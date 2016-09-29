@@ -2,19 +2,29 @@
 
 //NodeJS in-built packages 
 var express = require('express');
-
 //Custom packages
 var controller = require('.././controller/controller.js');
-
-
-//express router
+//Express router
 var router = express.Router();
 
 //Define routes
-//Route for getting current weather details
+/**
+ * This function works as route 
+ * for api which provides current 
+ * weather details as per requested city
+ * @route
+ * 
+ * */
 router.get('/currentWeatherDetails', controller.currentWeatherDetails);
 
-//Route for getting forecast details
+/**
+ * This function works as route 
+ * for api which provides five days 
+ * per three hours forecast details 
+ * as per requested city
+ * @route
+ * 
+ * */
 router.get('/forecastDetails', controller.forecastDetails);
 
 module.exports = router;

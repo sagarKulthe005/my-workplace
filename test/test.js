@@ -1,13 +1,13 @@
 "use strict";
 
 //NodeJS in-built packages 
-var request = require('request'),
-    expect = require("chai").expect;
+var request = require('request');
+var expect = require("chai").expect;
 
 //Global variables
-var _apiBaseUrl = "http://localhost:3000/",
-    _currentWeatherApi = "api/currentWeatherDetails",
-    _forecastApi = "api/forecastDetails";
+var _apiBaseUrl = "http://localhost:3000/";
+var _currentWeatherApi = "api/currentWeatherDetails";
+var _forecastApi = "api/forecastDetails";
 
 //Describe block for current weather api
 describe("Current weather API", function () {

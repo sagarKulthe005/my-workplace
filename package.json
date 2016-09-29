@@ -20,6 +20,7 @@
     "git-guppy": "^1.2.1",
     "gulp": "^3.9.1",
     "gulp-jscs": "^4.0.0",
+    "gulp-jsdoc3": "^1.0.0",
     "gulp-jslint": "^1.0.5",
     "gulp-mocha": "^3.0.1",
     "gulp-nodemon": "^2.2.0",

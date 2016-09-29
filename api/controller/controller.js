@@ -1,40 +1,38 @@
 "use strict";
 
 //NodeJS in-built packages 
-var request = require('request'),
-    http = require('http');
-
+var request = require('request');
+var http = require('http');
 //Custom packages
-var config = require('../config'),
-    logger = require('../logger');
-
+var config = require('../config');
+var logger = require('../logger');
 //Global variables
-var _successStatusMessage = 'sucess',
-    _errorStatusMessage = 'error',
-    _invalidStatusMessage = 'invalid',
-    _notFoundStatusMessage = 'not found',
-    _insufficientMessage = 'insufficient parameters provided. Please provide city name',
-    _weatherApiFailure = 'error while fetching weather details for {{city}}',
-    _forecastApiFailure = 'error while fetching forecast details for {{city}}',
-    _weatherDetailsSuccess = 'current weather details fetched successfully for {{city}}',
-    _invalidCityName = '{{city}} not found',
-    _forecastDetailsSuccess = 'forecast details fetched successfully for {{city}}',
-    //response status code
-    _success = 200,
-    _bad = 400,
-    _error = 500,
-    _notFound = 404;
+var _successStatusMessage = 'sucess';
+var _errorStatusMessage = 'error';
+var _invalidStatusMessage = 'invalid';
+var _notFoundStatusMessage = 'not found';
+var _insufficientMessage = 'insufficient parameters provided. Please provide city name';
+var _weatherApiFailure = 'error while fetching weather details for {{city}}';
+var _forecastApiFailure = 'error while fetching forecast details for {{city}}';
+var _weatherDetailsSuccess = 'current weather details fetched successfully for {{city}}';
+var _invalidCityName = '{{city}} not found';
+var _forecastDetailsSuccess = 'forecast details fetched successfully for {{city}}';
+//response status code
+var _success = 200;
+var _bad = 400;
+var _error = 500;
+var _notFound = 404;
 
-//Method for fetching wethear details from third party API
+/**
+ * This function hits third party openweathermap api
+ * to fetch current weather details for requested city.
+ *  @input cityName - name of the city for which user wants current weather details
+ *  @output json object consisting current weather details
+ *  
+ * */
 exports.currentWeatherDetails = function (req, res) {
     //Local variables
-    var weatherApiUrl = '',
-        apiFailureMessage = '',
-        finalResponse = '',
-        successMessage = '',
-        errorMessageNotFound = '',
-        errorMessage = '',
-        failureMessage = '';
+    var weatherApiUrl, apiFailureMessage, finalResponse, successMessage, errorMessageNotFound, errorMessage, failureMessage;
 
     //Exception handling
     try {
@@ -60,7 +58,7 @@ exports.currentWeatherDetails = function (req, res) {
                     apiFailureMessage = _weatherApiFailure.replace('{{city}}', req.query.cityName);
                     //Return response in json format
                     res.status(_error);
-                    res.json({ status: _errorStatusMessage, message: apiFailureMessage });
+                    res.json({status: _errorStatusMessage, message: apiFailureMessage});
                 } else {
                     //If api returned success
                     if (response.statusCode === _success) {
@@ -75,7 +73,7 @@ exports.currentWeatherDetails = function (req, res) {
                             successMessage = _weatherDetailsSuccess.replace('{{city}}', req.query.cityName);
                             //Return response in json format
                             res.status(_success);
-                            res.json({ status: _successStatusMessage, message: successMessage, data: finalResponse });
+                            res.json({status: _successStatusMessage, message: successMessage, data: finalResponse});
                         } else if (parseInt(finalResponse.cod, 10) === _notFound) {
                             //Log
                             logger.info('Response code from openWeatherApi is 404 for city: ' + req.query.cityName);
@@ -83,7 +81,7 @@ exports.currentWeatherDetails = function (req, res) {
                             errorMessageNotFound = _invalidCityName.replace('{{city}}', req.query.cityName);
                             //Return response in json format
                             res.status(_notFound);
-                            res.json({ status: _notFoundStatusMessage, message: errorMessageNotFound, data: finalResponse });
+                            res.json({status: _notFoundStatusMessage, message: errorMessageNotFound, data: finalResponse});
 
                         } else {
                             //Log
@@ -92,7 +90,7 @@ exports.currentWeatherDetails = function (req, res) {
                             errorMessage = _invalidCityName.replace('{{city}}', req.query.cityName);
                             //Return response in json format
                             res.status(_error);
-                            res.json({ status: _errorStatusMessage, message: errorMessage, data: finalResponse });
+                            res.json({status: _errorStatusMessage, message: errorMessage, data: finalResponse});
 
                         }
                     } else {
@@ -102,7 +100,7 @@ exports.currentWeatherDetails = function (req, res) {
                         failureMessage = _weatherApiFailure.replace('{{city}}', req.query.cityName);
                         //Return response in json format
                         res.status(_error);
-                        res.json({ status: _errorStatusMessage, message: failureMessage });
+                        res.json({status: _errorStatusMessage, message: failureMessage});
 
                     }
                 }
@@ -114,7 +112,7 @@ exports.currentWeatherDetails = function (req, res) {
 
             //Return response in json format
             res.status(_bad);
-            res.json({ status: _invalidStatusMessage, message: _insufficientMessage });
+            res.json({status: _invalidStatusMessage, message: _insufficientMessage});
 
         }
 
@@ -125,22 +123,22 @@ exports.currentWeatherDetails = function (req, res) {
 
         //Return response in json format 
         res.status(_error);
-        res.json({ status: _errorStatusMessage, message: _weatherApiFailure });
+        res.json({status: _errorStatusMessage, message: _weatherApiFailure});
     }
 };
 
 
 
-//Method for fetching forecast details from third party API
+/**
+ * This function hits third party openweathermap api
+ * to fetch 5 days per 3 hours forecast details for requested city.
+ *  @input cityName - name of the city for which user wants forecast details
+ *  @output json object consisting forecast details
+ *  
+ * */
 exports.forecastDetails = function (req, res) {
     //Local variables
-    var weatherApiUrl = '',
-        apiFailureMessage = '',
-        finalResponse = '',
-        successMessage = '',
-        errorMessageNotFound = '',
-        errorMessage = '',
-        failureMessage = '';
+    var weatherApiUrl, apiFailureMessage, finalResponse, successMessage, errorMessageNotFound, errorMessage, failureMessage;
 
     //Exception handling
     try {
@@ -167,7 +165,7 @@ exports.forecastDetails = function (req, res) {
                     apiFailureMessage = _forecastApiFailure.replace('{{city}}', req.query.cityName);
                     //Return response in json format
                     res.status(_error);
-                    res.json({ status: _errorStatusMessage, message: apiFailureMessage });
+                    res.json({status: _errorStatusMessage, message: apiFailureMessage});
                 } else {
                     //If api returned success
                     if (response.statusCode === _success) {
@@ -182,7 +180,7 @@ exports.forecastDetails = function (req, res) {
                             successMessage = _forecastDetailsSuccess.replace('{{city}}', req.query.cityName);
                             //Return response in json format
                             res.status(_success);
-                            res.json({ status: _successStatusMessage, message: successMessage, data: finalResponse });
+                            res.json({status: _successStatusMessage, message: successMessage, data: finalResponse});
                         } else if (parseInt(finalResponse.cod, 10) === _notFound) {
                             //Log
                             logger.info('Response code from openWeatherApi is 404 for city: ' + req.query.cityName);
@@ -190,7 +188,7 @@ exports.forecastDetails = function (req, res) {
                             errorMessageNotFound = _invalidCityName.replace('{{city}}', req.query.cityName);
                             //Return response in json format
                             res.status(_notFound);
-                            res.json({ status: _notFoundStatusMessage, message: errorMessageNotFound, data: finalResponse });
+                            res.json({status: _notFoundStatusMessage, message: errorMessageNotFound, data: finalResponse});
 
                         } else {
                             //Log
@@ -199,7 +197,7 @@ exports.forecastDetails = function (req, res) {
                             errorMessage = _invalidCityName.replace('{{city}}', req.query.cityName);
                             //Return response in json format
                             res.status(_error);
-                            res.json({ status: _errorStatusMessage, message: errorMessage, data: finalResponse });
+                            res.json({status: _errorStatusMessage, message: errorMessage, data: finalResponse});
 
                         }
                     } else {
@@ -208,7 +206,7 @@ exports.forecastDetails = function (req, res) {
                         failureMessage = _forecastApiFailure.replace('{{city}}', req.query.cityName);
                         //Return response in json format
                         res.status(_error);
-                        res.json({ status: _errorStatusMessage, message: failureMessage });
+                        res.json({status: _errorStatusMessage, message: failureMessage});
 
                     }
                 }
@@ -219,7 +217,7 @@ exports.forecastDetails = function (req, res) {
             logger.info('Insufficient parameters provided');
             //Return response in json format
             res.status(_bad);
-            res.json({ status: _invalidStatusMessage, message: _insufficientMessage });
+            res.json({status: _invalidStatusMessage, message: _insufficientMessage});
 
         }
 
@@ -230,7 +228,7 @@ exports.forecastDetails = function (req, res) {
 
         //Return response in json format 
         res.status(_error);
-        res.json({ status: _errorStatusMessage, message: _forecastApiFailure });
+        res.json({status: _errorStatusMessage, message: _forecastApiFailure});
     }
 };
 
