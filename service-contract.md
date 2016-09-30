@@ -1,4 +1,4 @@
-## Service contract(s)
+### Service contract(s)
 
 ## 1. Current weather details
    Input Contract: To get current weather deatials of any city requestor need to pass 'cityName' as a query parameter with city name as value to it.
