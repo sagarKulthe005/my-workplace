@@ -1,7 +1,0 @@
-{"level":"info","message":"server started on 3000","timestamp":"2016-09-28T10:43:12.803Z"}
-{"level":"info","message":"Insufficient parameters provided","timestamp":"2016-09-28T10:43:13.038Z"}
-{"level":"info","message":"server started on 3000","timestamp":"2016-09-28T10:56:42.194Z"}
-{"level":"info","message":"Insufficient parameters provided","timestamp":"2016-09-28T10:57:32.304Z"}
-{"level":"info","message":"server started on 3000","timestamp":"2016-09-28T15:52:04.652Z"}
-{"level":"info","message":"Current weather details requested for city: london","timestamp":"2016-09-28T15:52:19.350Z"}
-{"level":"info","message":"Response code from openWeatherApi is 200 for city: london","timestamp":"2016-09-28T15:52:19.715Z"}

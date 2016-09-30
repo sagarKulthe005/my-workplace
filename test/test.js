@@ -12,11 +12,11 @@ var _forecastApi = "api/forecastDetails";
 //Describe block for current weather api
 describe("Current weather API", function () {
 
-  //Api path
-  var url = _apiBaseUrl + _currentWeatherApi;
+    //Api path
+    var url = _apiBaseUrl + _currentWeatherApi;
 
-  //it block for response status code 200
-  it("returns status 200", function (done) {
+    //it block for response status code 200
+    it("returns status 200", function (done) {
     request(url + '?cityName=London', function (error, response, body) {
       //compare the api response with expected response
       expect(response.statusCode).to.equal(200);

@@ -9,16 +9,13 @@ var jscs = require('gulp-jscs');
 var guppy = require('git-guppy')(gulp);
 var jsdoc = require('gulp-jsdoc3');
 
- function handleError(err) {
-  console.log('Hey'+err.toString());
-  this.emit('end');
-}
-
+//Task for document creation
 gulp.task('doc', function (cb) {
     gulp.src(['./api/**/*.js'], {read: false})
          .pipe(jsdoc(cb));
 });
 
+//Task for code style check
 gulp.task('style', function () {
     return gulp.src(['gulpFile.js', 'app.js', './api/**/*.js'])
         .pipe(jscs({fix: true}))
@@ -27,25 +24,27 @@ gulp.task('style', function () {
         .pipe(jscs.reporter('fail'));
 });
 
+//Task for pre-commit check
 gulp.task('pre-commit', ['lint', 'style', 'test']);
 
+//Task for code linting
 gulp.task('lint', function () {
     return gulp.src(['gulpFile.js', 'app.js', './api/**/*.js'])
         .pipe(jslint({
             node:  true,
             nomen:  true
         }))
-        .pipe(jslint.reporter('default'));
-        
+        .pipe(jslint.reporter('stylish', true));
 });
 
+//Task for unit test cases
 gulp.task('test', function () {
-    gulp.src('./test/*.js', {read: false})
-        .pipe(mocha({reporter: 'spec'})
-        .on("error", handleError));
+    gulp.src('./test/*.js')
+        .pipe(mocha({reporter: 'spec'}));
 });
 
-gulp.task('start', function () {
+//Task to start app
+gulp.task('start-app', function () {
     nodemon({
         script: 'app.js'
     })
