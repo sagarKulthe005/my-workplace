@@ -1,7 +1,7 @@
 ### Weather-Api
-This is node base service which uses express as well as http module. This api provides two services to outside world as listed below
-1. Current weather details.
-2. 5 days/3 hour forecast details.
+This is node base service which uses express as well as http module. This api provides two services to outside world as listed below<br />
+1. Current weather details.<br />
+2. 5 days/3 hour forecast details.<br />
 This service consumes a third party weather service (http://openweathermap.org/api) to get data from it as per city name provided.
 
 ## Getting Started
@@ -22,3 +22,5 @@ Code documentation is generated using ```gulp-jsdoc3``` package. It is already d
 ## Hooks
 Whenever any programmer working on this api will try to commit any changes made to this api to git repository then before commiting ```pre-commits hooks``` will run to check lint,style and test all are passed or not. If everything is passed then only commit will happen else it will stop git commit task. ```precommit-hook``` package is used for implementing these hooks.
 
+## Service Contract
+User will get service contract details in ```service-contract.md``` file.
