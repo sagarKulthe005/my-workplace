@@ -1,4 +1,4 @@
-### weather-Api
+### Weather-Api
 This is node base service which uses express as well as http module. This api provides two services to outside world as listed below
 1. Current weather details.
 2. 5 days/3 hour forecast details.
