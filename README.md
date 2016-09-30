@@ -5,7 +5,9 @@ This is node base service which uses express as well as http module. This api pr
 This service consumes a third party weather service (http://openweathermap.org/api) to get data from it as per city name provided.
 
 ## Getting Started
-To launch this service user need to first of all run ```npm install``` to install all packages this node api requires.Once all packages successfully installed user can run gulp task ``` gulp start-app ``` to launch this api. 
+To launch this service user need to first of all run ```npm install``` to install all packages this node api requires.Once all packages successfully installed user can run gulp task ``` gulp start-app ``` to launch this api. Once started user can call consume this api as follows,<br />
+1) Current weather details : ```http://localhost:3000/api/currentWeatherDetails?cityName=London```  <br />
+2) 5 days/3 hour forecast details : ```http://localhost:3000/api/forecastDetails?cityName=London``` <br />
 
 ## Linting
 To lint this applications code user need to run gulp task ```gulp lint ```. This will check all code written for this service using ```gulp-jslint``` package and provide errors if any.
