@@ -1,7 +1,7 @@
 ### Weather-Api
-This is node base service which uses express as well as http module. This api provides two services to outside world as listed below<br />
-1. Current weather details.<br />
-2. 5 days/3 hour forecast details.<br />
+This is node base service which uses express as well as http module. This api provides two services to outside world as listed below,<br />
+1) Current weather details.<br />
+2) 5 days/3 hour forecast details.<br />
 This service consumes a third party weather service (http://openweathermap.org/api) to get data from it as per city name provided.
 
 ## Getting Started
