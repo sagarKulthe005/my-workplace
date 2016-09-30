@@ -33,7 +33,7 @@ gulp.task('lint', function () {
         }))
         .pipe(jslint.reporter('stylish',  true))
         .on('error', function(){
-           process.exit(-1);
+           process.exit(0);
         });
 });
 
