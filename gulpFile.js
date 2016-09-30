@@ -31,7 +31,7 @@ gulp.task('lint', function () {
             node:  true,
             nomen:  true
         }))
-        .pipe(jslint.reporter('stylish',  true));
+        .pipe(jslint.reporter('default'));
         
 });
 
