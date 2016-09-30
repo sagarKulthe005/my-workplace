@@ -31,10 +31,8 @@ gulp.task('lint', function () {
             node:  true,
             nomen:  true
         }))
-        .pipe(jslint.reporter('stylish',  true))
-        .on('error', function(){
-           process.exit(0);
-        });
+        .pipe(jslint.reporter('stylish',  true));
+        
 });
 
 gulp.task('test', function () {
