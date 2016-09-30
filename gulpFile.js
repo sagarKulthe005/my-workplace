@@ -9,7 +9,11 @@ var jscs = require('gulp-jscs');
 var guppy = require('git-guppy')(gulp);
 var jsdoc = require('gulp-jsdoc3');
 
- 
+ function handleError(err) {
+  console.log('Hey'+err.toString());
+  this.emit('end');
+}
+
 gulp.task('doc', function (cb) {
     gulp.src(['./api/**/*.js'], {read: false})
          .pipe(jsdoc(cb));
@@ -37,7 +41,8 @@ gulp.task('lint', function () {
 
 gulp.task('test', function () {
     gulp.src('./test/*.js', {read: false})
-        .pipe(mocha({reporter: 'spec'}));
+        .pipe(mocha({reporter: 'spec'})
+        .on("error", handleError));
 });
 
 gulp.task('start', function () {
