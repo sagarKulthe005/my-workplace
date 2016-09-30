@@ -8,9 +8,9 @@
    Output Contract: Requestor will get output in JSON format.<br />
    Format: Below is the format for response JSON from this api,<br />
    response: {<br />
-              "status":"/** Can be 'success'or 'error' or 'invalid'or 'not found' as per request completion status*/",<br />
-              "message":"/**string message from api*/",<br />
-              "data":"/**It will contain current weather data in json format*/"<br />
+              "status":"/Can be 'success'or 'error' or 'invalid'or 'not found' as per request completion status/",<br />
+              "message":"/string message from api/",<br />
+              "data":"/It will contain current weather data in json format/"<br />
              }
    
 ## 2. 5 days/3 hour forecast details
@@ -21,8 +21,8 @@
    Output Contract: Requestor will get output in JSON format.<br />
    Format: Below is the format for response JSON from this api,<br />
    response: {<br />
-              "status":"/** Can be 'success'or 'error' or 'invalid'or 'not found' as per request completion status*/",<br />
-              "message":"/**string message from api*/",<br />
-              "data":"/**It will contain 5 days/3 hour forecast data in json format*/"<br />
+              "status":"/Can be 'success'or 'error' or 'invalid'or 'not found' as per request completion status/",<br />
+              "message":"/string message from api/",<br />
+              "data":"/It will contain 5 days/3 hour forecast data in json format/"<br />
              }
    
