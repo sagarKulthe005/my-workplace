@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>Risk Analysis</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Risk and Financial Data Aalysis'
+                },
+                subtitle: {
+                    text: 'Risk data as per date'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    startOnTick: true,
+                    endOnTick: true,
+                    dateTimeLabelFormats: {
+                        day: '%d %b %Y' //ex- 01 Jan 2016
+                    },
+                    labels: {
+                        rotation: -45
+                    },
+                    title: {
+                        text: 'Date'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'Values'
+                    },
+                    min: 0
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.x: %d %b %Y}: {point.y:.2f} m'
+                },
+
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            enabled: true
+                        }
+                    }
+                },
+
+                series: [{
+                    name: 'Risk Sensitivity',
+                    data: [
+                        [Date.UTC(2012, 10, 9), 2],
+                        [Date.UTC(2012, 10, 10), 22],
+                        [Date.UTC(2012, 10, 11), 12],
+                        [Date.UTC(2012, 10, 12), 15],
+                        [Date.UTC(2012, 10, 13), 45],
+                        [Date.UTC(2012, 10, 14), 67],
+                        [Date.UTC(2012, 10, 15), 93],
+                        [Date.UTC(2012, 10, 16), 34],
+                        [Date.UTC(2012, 10, 17), 27],
+                        [Date.UTC(2012, 10, 18), 32],
+                        [Date.UTC(2012, 10, 19), 29],
+                        [Date.UTC(2012, 10, 20), 59],
+                        [Date.UTC(2012, 10, 21), 76],
+                        [Date.UTC(2012, 10, 22), 79],
+                        [Date.UTC(2012, 10, 23), 63],
+                        [Date.UTC(2012, 10, 24), 70]
+                    ]
+                }]
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container" style="width: 550px; height: 400px; margin: 0 auto">
+
+    </div>
+</body>
+
+</html>
